@@ -333,6 +333,9 @@ function getEntityMarkup(
     return `<a href="${entity.data.url}" target="${targetOption}">${text}</a>`;
   }
   if (entity.type === 'IMAGE') {
+    if(entity.data.href){
+      return `<a href="${entity.data.href}"><img src="${entity.data.src}" alt="${entity.data.alt}" style="float:${entity.data.alignment || 'none'};height: ${entity.data.height};width: ${entity.data.width}"/></a>`;
+    }
     return `<img src="${entity.data.src}" alt="${entity.data.alt}" style="float:${entity.data.alignment || 'none'};height: ${entity.data.height};width: ${entity.data.width}"/>`;
   }
   if (entity.type === 'EMBEDDED_LINK') {
